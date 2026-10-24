@@ -22,9 +22,10 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        if [ -f reqiurement.txt ]; then pip install -r reqiurement.txt; fi
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Run Tests
+      env:
+        PYTHONPATH: .
       run: |
         pytest
